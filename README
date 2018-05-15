@@ -1,0 +1,12 @@
+Bevara Accessors are inspired by or based on open-source data decoders/interpreters/applications. Thus, they 
+inherit the licenses from the original applications. 
+
+Each directory contains two subdirectories: ORIGINAL which contains the original code modified by Bevara; and,
+BEVARA which contains Bevara's version of the code. Please see the license files in the original and the
+embedded license information in the Bevara code for information about the license for each format. 
+
+
+
+Bevara Support
+support@bevara.com
+
