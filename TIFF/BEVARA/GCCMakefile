@@ -1,0 +1,201 @@
+# GNU Makefile
+
+VER_MINOR = 4a
+VER_MAJOR = 2
+
+
+
+OUT := build
+GEN := generated  # this is where the generated font files are put
+default: all
+
+# --- Configuration ---
+
+
+
+#   for gcc
+CC= gcc
+LD= gcc
+# build works with stdinc libs
+CFLAGS +=  -v  -Iinclude -I$(GEN) -Wall -DNDEBUG 
+# LIBS += $(XLIBS) -lm
+
+
+
+
+# --- Commands ---
+
+
+QUIET_CC = @ echo ' ' ' ' CC $@ ;
+QUIET_CXX = @ echo ' ' ' ' CXX $@ ;
+QUIET_GEN = @ echo ' ' ' ' GEN $@ ;
+QUIET_LINK = @ echo ' ' ' ' LINK $@ ;
+QUIET_MKDIR = @ echo ' ' ' ' MKDIR $@ ;
+QUIET_RM = @ echo ' ' ' ' RM $@ ;
+
+
+CC_CMD = $(QUIET_CC) $(CC) $(CFLAGS) -o $@ -c $<
+#CXX_CMD = $(QUIET_CXX) $(CXX) $(CFLAGS) -o $@ -c $<
+#AR_CMD = $(QUIET_AR) $(AR) cr $@ $^
+LINK_CMD = $(QUIET_LINK) $(LD) $(LDFLAGS) -o $@ $^ $(LIBS)
+MKDIR_CMD = $(QUIET_MKDIR) mkdir -p $@
+#RM_CMD = $(QUIET_RM) rm -f $@
+
+# --- File lists ---
+
+
+
+TF_OUT := $(OUT)
+SOURCES := \
+	src/tiff.c \
+	src/adler32.c \
+	src/inffast.c \
+	src/inflate.c \
+	src/inftrees.c \
+	src/uncompr.c \
+	src/zutil.c \
+	src/list-device.c \
+	src/function.c \
+	src/jmemcust.c \
+	src/load-jpeg.c \
+	src/printf.c \
+	src/text.c \
+	src/image.c \
+	src/draw-mesh.c \
+	src/bbox-device.c \
+	src/stream-read.c \
+	src/draw-edge.c \
+	src/filter-predict.c \
+	src/bitmap.c \
+	src/draw-affine.c \
+	src/font.c \
+	src/buffer.c \
+	src/filter-lzw.c \
+	src/document.c \
+	src/filter-leech.c\
+	src/memory.c \
+	src/context.c \
+	src/draw-paint.c \
+	src/compressed-buffer.c \
+	src/device.c \
+	src/draw-unpack.c \
+	src/store.c \
+	src/draw-glyph.c \
+	src/string.c \
+	src/path.c \
+	src/filter-dct.c \
+	src/hash.c \
+	src/glyph.c \
+	src/filter-flate.c \
+	src/load-tiff.c \
+	src/output.c \
+	src/colorspace.c \
+	src/draw-blend.c \
+	src/load-png.c \
+	src/filter-fax.c \
+	src/pixmap.c \
+	src/stream-open.c \
+	src/shade.c \
+	src/filter-jbig2.c \
+	src/error.c \
+	src/link.c \
+	src/filter-basic.c \
+	src/geometry.c \
+	src/draw-device.c \
+	src/jaricom.c \
+	src/jcomapi.c \
+	src/jdapimin.c \
+	src/jdapistd.c \
+	src/jdarith.c \
+	src/jdatadst.c \
+	src/jdatasrc.c \
+	src/jdcoefct.c \
+	src/jdcolor.c \
+	src/jddctmgr.c \
+	src/jdhuff.c \
+	src/jdinput.c \
+	src/jdmainct.c \
+	src/jdmarker.c \
+	src/jdmaster.c \
+	src/jdmerge.c \
+	src/jdpostct.c \
+	src/jdsample.c \
+	src/jdtrans.c \
+	src/jerror.c \
+	src/jfdctflt.c \
+	src/jfdctfst.c \
+	src/jfdctint.c \
+	src/jidctflt.c \
+	src/jidctfst.c \
+	src/jidctint.c \
+	src/jmemmgr.c \
+	src/jquant1.c \
+	src/jquant2.c \
+	src/jutils.c \
+	src/jbig2.c \
+	src/jbig2_arith.c \
+	src/jbig2_arith_iaid.c \
+	src/jbig2_arith_int.c \
+	src/jbig2_generic.c \
+	src/jbig2_halftone.c \
+	src/jbig2_huffman.c \
+	src/jbig2_image.c \
+	src/jbig2_metadata.c \
+	src/jbig2_mmr.c \
+	src/jbig2_page.c \
+	src/jbig2_refinement.c \
+	src/jbig2_segment.c \
+	src/jbig2_symbol_dict.c \
+	src/jbig2_text.c \
+	src/ftbase.c \
+	src/ftbbox.c \
+	src/ftbitmap.c \
+	src/ftdebug.c \
+	src/ftgasp.c \
+	src/ftglyph.c \
+	src/ftinit.c \
+	src/ftstroke.c \
+	src/ftsynth.c \
+	src/ftsystem.c \
+	src/fttype1.c \
+	src/ftxf86.c \
+	src/cff.c \
+	src/psaux.c \
+	src/pshinter.c \
+	src/psnames.c \
+	src/raster.c \
+	src/sfnt.c \
+	src/smooth.c \
+	src/truetype.c \
+	src/type1.c \
+	src/type1cid.c \
+
+
+CFLAGS :=  -Iscripts/jpeg  -Iscripts/freetype -Ithirdparty/freetype/include 
+#	-DFT2_BUILD_LIBRARY 
+#-DDARWIN_NO_CARBON 
+#	'-DFT_CONFIG_MODULES_H="slimftmodules.h"' \
+#	'-DFT_CONFIG_OPTIONS_H="slimftoptions.h"'
+
+TARGET = tiff_ver_$(VER_MAJOR).$(VER_MINOR)
+MODULES = $(SOURCES:.c=.o)
+ASFILE = $(TARGET).o
+
+#
+all: TIFF
+
+TIFF: $(ASFILE)
+$(ASFILE): $(MODULES)
+	$(LD)  -o $@ $(MODULES)
+.c.o:	
+	$(CC) $(CFLAGS) -c $< -o $@
+
+
+
+# --- clean it up ----
+
+clean:
+	rm build/mudraw*
+	rm build/*/*.o
+
+.PHONY: all clean nuke install third libs apps generate
