@@ -1,0 +1,25 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{AF84D39C-431F-11E3-9A4A-D067E5EAB6E3}") = "librevenge", "librevenge.vcproj", "{740F0D46-431F-11E3-B75A-D067E5EAB6E3}"
+EndProject
+Project("{AF84D39C-431F-11E3-9A4A-D067E5EAB6E3}") = "librevengestream", "librevengestream.vcproj", "{9BD03F44-431F-11E3-B8FC-D067E5EAB6E3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{740F0D46-431F-11E3-B75A-D067E5EAB6E3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{740F0D46-431F-11E3-B75A-D067E5EAB6E3}.Debug|Win32.Build.0 = Debug|Win32
+		{740F0D46-431F-11E3-B75A-D067E5EAB6E3}.Release|Win32.ActiveCfg = Release|Win32
+		{740F0D46-431F-11E3-B75A-D067E5EAB6E3}.Release|Win32.Build.0 = Release|Win32
+		{9BD03F44-431F-11E3-B8FC-D067E5EAB6E3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9BD03F44-431F-11E3-B8FC-D067E5EAB6E3}.Debug|Win32.Build.0 = Debug|Win32
+		{9BD03F44-431F-11E3-B8FC-D067E5EAB6E3}.Release|Win32.ActiveCfg = Release|Win32
+		{9BD03F44-431F-11E3-B8FC-D067E5EAB6E3}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

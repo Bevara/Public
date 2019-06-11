@@ -1,0 +1,18 @@
+librevenge_0_0_la-RVNGMemoryStream.lo: RVNGMemoryStream.cpp \
+ RVNGMemoryStream.h ../../inc/librevenge-stream/librevenge-stream.h \
+ ../../inc/librevenge-stream/RVNGDirectoryStream.h \
+ ../../inc/librevenge-stream/librevenge-stream-api.h \
+ ../../inc/librevenge-stream/RVNGStream.h \
+ ../../inc/librevenge-stream/RVNGStreamImplementation.h
+
+RVNGMemoryStream.h:
+
+../../inc/librevenge-stream/librevenge-stream.h:
+
+../../inc/librevenge-stream/RVNGDirectoryStream.h:
+
+../../inc/librevenge-stream/librevenge-stream-api.h:
+
+../../inc/librevenge-stream/RVNGStream.h:
+
+../../inc/librevenge-stream/RVNGStreamImplementation.h:
